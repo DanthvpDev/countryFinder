@@ -1,0 +1,30 @@
+:root,
+[data-bs-theme=light] {
+    --bs-primary-rgb: 44, 108, 187; /* * Blue */
+    --bs-secondary-rgb: 215, 163, 26;
+    /* --bs-light-rgb: 255, 238, 203 !important;  */
+    --bs-light-rgb: 246, 249, 250; /* * White */
+}
+
+
+header {
+    height: 40vh;
+}
+
+#layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+#layer::before {
+    content: '';
+    background-color: rgba(0, 0, 0, 0.374);
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
