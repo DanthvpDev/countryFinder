@@ -1,32 +1,41 @@
 const searchBtn = document.getElementById('searchBtn');
 const inputText = document.getElementById('inputText');
 const form = document.getElementById('formSearch');
-
-//? Filter among data that includes the input text
-function SearchCountryByName(data, prompt) {
-    return data.filter(e => e.name.common.toLowerCase().includes(prompt));
-}
+const comboRegions = document.getElementById('comboRegions')
 
 //? This initializes the search events 
 function InitializeSearchEvents(data) {
 
     //* Search button event initialization
     searchBtn.addEventListener('click', () => {
-        let inputData = inputText.value.trim().toLowerCase();
-        let filteredData = SearchCountryByName(data, inputData);
-        if (filteredData.length > 0) ShowCountryCards(filteredData)
-        else console.log('NO');
-    }, false);
-
-    //* Search whent enter event initialization
-    inputText.addEventListener('keypress', e => {
-        if (e.key == 'Enter') {
-            e.preventDefault();
-            let inputData = inputText.value.trim().toLowerCase()
-            let filteredData = SearchCountryByName(data, inputData);
+        let inputData;
+        let filteredData;
+        if (inputText) {
+            inputData = inputText.value.trim().toLowerCase();
+            filteredData = SearchCountryByName(data, inputData)
             if (filteredData.length > 0) ShowCountryCards(filteredData)
         }
-    })
+
+        if (comboRegions) {
+            inputData = comboRegions.value.trim().toLowerCase();
+            filteredData = SearchCountryByRegion(data, inputData)
+            if (filteredData.length > 0) ShowCountryCards(filteredData)
+        }
+
+    }, false);
+    console.log(inputText)
+
+    if (inputText) {
+        //* Search whent enter event initialization
+        inputText.addEventListener('keypress', e => {
+            if (e.key == 'Enter') {
+                e.preventDefault();
+                inputData = inputText.value.trim().toLowerCase()
+                filteredData = SearchCountryByName(data, inputData);
+                if (filteredData.length > 0) ShowCountryCards(filteredData)
+            }
+        })
+    }
 }
 
 //* Function builds up the functionality
@@ -39,6 +48,7 @@ async function StartApp() {
             region: element.region,
             flag: element.flags.png
         }));
+
         InitializeSearchEvents(storageData);
         ShowCountryCards(dataForCards);
     }
