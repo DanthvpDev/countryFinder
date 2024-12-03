@@ -9,7 +9,7 @@ function ShowCountryCards(data) {
     }
     data.forEach(element => {
         let newDiv = document.createElement('div');
-        newDiv.className += 'col-3 bg-light text-black text-start py-3 px-3 rounded-2 cardShadow';
+        newDiv.className += 'col-3 bg-light text-black text-start py-3 px-3 rounded-2 cardShadow countryCard';
         newDiv.innerHTML = `
                 <div class="col-12 d-flex justify-content-between w-100">
                     <h3 class="py-1 text-primary">${typeof(element.name) === 'object' ? element.name.common : element.name}</h3>
