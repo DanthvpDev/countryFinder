@@ -117,3 +117,16 @@ header::before {
 .modal-content {
     background-color: rgba(7, 90, 190, 0.829);
 }
+
+path {
+    fill:#0000005f;
+    transition: all .3s ease-in-out;
+}
+
+g:hover path {
+    transition: all .3s ease-in-out;
+}
+
+#continentName {
+    left: -300px;
+}
