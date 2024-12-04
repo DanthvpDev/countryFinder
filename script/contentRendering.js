@@ -1,8 +1,8 @@
 let gridContainer = document.getElementById('gridContainer');
+const infoList = document.getElementById('infoList');
 
 function ShowCountryCards(data) {
     if(gridContainer.children.length > 0) {
-        console.log(data)
         Array.from(gridContainer.children).forEach(element => {
             element.remove();
         });
@@ -20,6 +20,39 @@ function ShowCountryCards(data) {
         `
         gridContainer.appendChild(newDiv);
     });
-    return;
     
+    InitializeModalEvent(data);
+    
+}
+
+function RenderModal(data) {
+    data.forEach(element => {
+        infoList.innerHTML = `
+                <li>
+                    <picture class="d-flex w-75 mx-auto">
+                        <img src='${typeof(element.flags) === 'object' ? element.flags.png : element.flag}' class='object-fit-contain w-100'>
+                    </picture>
+                </li>
+                <li>
+                    <i class="fa-solid fa-star"></i> <p>${typeof(element.name) === 'object' ? element.name.official : element.name}</p>
+                </li>
+                <li>
+                    <i class="fa-solid fa-landmark-flag"></i> <p>${element.capital}</p>
+                </li>
+                <li>
+                    <i class="fa-solid fa-earth-americas"></i> <p>${element.region ? element.region : 'No Data'}</p>
+                </li>
+                <li>
+                    <i class="fa-solid fa-map"></i> <p>${element.subregion ? element.subregion : 'No Data'}</p>
+                </li>
+                <li>
+                    <i class="fa-solid fa-people-group"></i> <p>${element.population ? element.population.toLocaleString('es-ES') : 'No Data'}</p>
+                </li>
+                <li>
+                    <i class="fa-solid fa-language"></i> <p>${typeof(element.languages) === 'object' ? Object.values(element.languages)[0] : element.languages}</p>
+                </li>
+                <li>
+                    <i class="fa-solid fa-money-bill-1"></i> <p>${typeof(element.currencies) === 'object' ? Object.values(element.currencies)[0].name : element.currencies}</p>
+                </li>`
+    });
 }

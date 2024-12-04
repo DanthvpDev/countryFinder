@@ -13,7 +13,9 @@
     font-family: "Quicksand", sans-serif;
 }
 
-
+li {
+    list-style: none;
+}
 
 .cardShadow {
     box-shadow: 0px 0px 34px -6px rgba(44, 108, 187,0.5);
@@ -92,4 +94,26 @@ header::before {
     border: 1px solid rgb(79, 142, 219);
     background-color:  rgba(44, 108, 187, 0.788);
     color: rgb(246, 249, 250);
+}
+
+
+#infoList {
+    flex-wrap: wrap;
+    
+}
+
+#infoList li {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    padding: 2% 0;
+}
+
+#infoList li p {
+    margin: 0 0 0 2%;
+}
+
+
+.modal-content {
+    background-color: rgba(7, 90, 190, 0.829);
 }
