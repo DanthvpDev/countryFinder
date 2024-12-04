@@ -128,5 +128,5 @@ g:hover path {
 }
 
 #continentName {
-    left: -300px;
+    display: none;
 }

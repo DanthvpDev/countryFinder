@@ -16,7 +16,7 @@
 
 <body class="bg-light text-light">
     <header class="position-relative overflow-hidden pb-5">
-        <video src="/media/videos/planet.mp4" class="position-absolute start-0 top-0 z-0 object-fit-cover h-100 w-100"
+        <video src="../media/videos/planet.mp4" class="position-absolute start-0 top-0 z-0 object-fit-cover h-100 w-100"
             autoplay loop muted></video>
         <section class="w-100 container-fluid">
             <div class="row justify-content-between">
@@ -32,8 +32,13 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/" class="nav-link text-light text-uppercase">
+                                <a href="../pages/searchRegion.html" class="nav-link text-light text-uppercase">
                                     Search By Region
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../pages/world-map.html" class="nav-link text-light text-uppercase">
+                                    Search on the map
                                 </a>
                             </li>
                         </ul>
@@ -61,10 +66,9 @@
         </section>
     </header>
     <main class="py-5">
-        <p id="continentName" class="text-primary position-absolute py-2 px-3 bg-primary text-light text-capitalize">0</p>
-        <h2 class="text-primary text-center py-2">Countries</h2>
         <section>
-            <article class="d-flex justify-content-center py-2">
+            <article class="d-flex justify-content-center py-2 position-relative">
+                <p id="continentName" class="text-primary position-absolute py-2 px-3 bg-primary text-light text-capitalize">0</p>
                 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
                 <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://web.resource.org/cc/"
                     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
@@ -238,9 +242,9 @@
                              />
                     </g>
                 </svg>
-
             </article>
         </section>
+        <h2 class="text-primary text-center py-2">Countries</h2>
         <section class="py-4 container-fluid">
             <div class="d-flex w-100 row flex-wrap gap-4 justify-content-center" id="gridContainer">
 

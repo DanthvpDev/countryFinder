@@ -18,10 +18,12 @@ Array.from(continentsSVG).forEach(continent => {
             element.style.fill = 'rgb(44, 108, 187)'
         });
 
+        console.log(p);
+
         let mousePositionX = event.clientX;
         let mousePositionY = event.clientY;
         p.style.display = 'inline-block';
-        p.style.top = `${mousePositionY+120}px`
+        p.style.top = `${mousePositionY - 260}px`
         p.style.left = `${mousePositionX - 20}px`
         p.textContent = id;
         
